@@ -1,7 +1,7 @@
 import { Flex,  Button, Stack } from '@chakra-ui/react'
 import { Input } from '../components/Form/Input'
 
-export default function Home() {
+export default function SignIn() {
   return (
     <Flex width='100vw' height='100vh' alignItems='center' justifyContent='center'>
       <Flex
