@@ -14,36 +14,7 @@ export default function Home() {
         flexDirection='column'>
         <Stack spacing='4'>
           <Input name='email' label='E-mail' type='email' />
-          <FormControl>
-            <FormLabel htmlFor='email'>E-mail</FormLabel>
-            {/* <Input
-              id='email'
-              name='email'
-              type='email'
-              size='lg'
-              backgroundColor='gray.900'
-              focusBorderColor='pink.500'
-              variant='filled'
-              _hover={{
-                backgroundColor: 'gray.900'
-              }}
-            /> */}
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor='password' >Senha</FormLabel>
-            {/* <Input
-              name='password'
-              type='password'
-              id='password'
-              size='lg'
-              backgroundColor='gray.900'
-              focusBorderColor='pink.500'
-              variant='filled'
-              _hover={{
-                backgroundColor: 'gray.900'
-              }}
-            /> */}
-          </FormControl>
+          <Input name='password' label='Senha' type='password' />
           <Button type='submit' marginTop='6' colorScheme='pink' size='lg'>Entrar</Button>
         </Stack>
       </Flex>
