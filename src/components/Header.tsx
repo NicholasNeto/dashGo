@@ -23,6 +23,20 @@ export function Header() {
                 <Text as='span' color='pink.500' marginLeft='1'>.</Text>
             </Text>
 
+            <Flex
+                as='label'
+                flex='1'
+                py='4' // py padding vertical | top | bottom
+                px='8' // px padding horizontal | left and right
+                ml='6'
+                maxWidth={400}
+                alignSelf='center'
+                color='gray.200'
+                position='relative'
+                background='gray.800'
+                borderRadius='full'
+            />
+
         </Flex>
     )
 }
