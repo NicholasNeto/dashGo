@@ -13,7 +13,7 @@ export default function Home() {
         flexDirection='column'>
         <Stack spacing='4'>
           <FormControl>
-            <FormLabel id='email'>E-mail</FormLabel>
+            <FormLabel htmlFor='email'>E-mail</FormLabel>
             <Input
               id='email'
               name='email'
@@ -28,7 +28,7 @@ export default function Home() {
             />
           </FormControl>
           <FormControl>
-            <FormLabel id='password' >Senha</FormLabel>
+            <FormLabel htmlFor='password' >Senha</FormLabel>
             <Input
               name='password'
               type='password'
