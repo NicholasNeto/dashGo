@@ -55,9 +55,9 @@ export function Header() {
             >
                 <HStack
                     spacing='8'
-                    max='8'
+                    mx='8' // mx margin horizontal | left and right
                     pr='8'
-                    py='1'
+                    py='1' // px padding vertical | top and bottom
                     color='gray.300'
                     borderRightWidth={1}
                     borderColor='gray.700'
@@ -67,7 +67,7 @@ export function Header() {
                 </HStack>
 
                 <Flex align='center'>
-                    <Box ml='4' textAlign='right'>
+                    <Box mr='4' textAlign='right'>
                         <Text>Nicholas Neto</Text>
                         <Text
                           color='gray.300'
