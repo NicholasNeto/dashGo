@@ -21,7 +21,9 @@ export default function Dashboard() {
                     <Box p='8' background='gray.800' borderRadius={8} paddingBottom='4' >
                         <Text fontSize='lg' marginBottom='4'>Inscritos da semana</Text>
                     </Box>
-
+                    <Box p='8' background='gray.800' borderRadius={8} paddingBottom='4' >
+                        <Text fontSize='lg' marginBottom='4'>Taxa de abertura</Text>
+                    </Box>
                 </SimpleGrid>
             </Flex>
         </Flex>
