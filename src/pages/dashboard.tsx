@@ -50,8 +50,6 @@ const options = {
             opacityTo: 0.3,
         },
     }
-
-
 }
 
 const series = [
@@ -81,6 +79,7 @@ export default function Dashboard() {
                     </Box>
                     <Box p='8' background='gray.800' borderRadius={8} paddingBottom='4' >
                         <Text fontSize='lg' marginBottom='4'>Taxa de abertura</Text>
+                        <Chart type='area' height={160} options={options} series={series} />
                     </Box>
                 </SimpleGrid>
             </Flex>
