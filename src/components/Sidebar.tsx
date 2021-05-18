@@ -1,6 +1,6 @@
 
 import { Box, Stack, Text, Icon, Link } from "@chakra-ui/react";
-import { RiContactsLine, RiDashboardLine } from "react-icons/ri";
+import { RiContactsLine, RiDashboardLine, RiInputMethodLine } from "react-icons/ri";
 
 export function Sidebar() {
     return (
@@ -16,6 +16,15 @@ export function Sidebar() {
                         <Link display='flex' align='center'>
                             <Icon as={RiContactsLine} fontSize='20' />
                             <Text ml='4' fontWeight='medium' >Usuarios</Text>
+                        </Link>
+                    </Stack>
+                </Box>
+                <Box>
+                    <Text fontWeight='bold' color='gray.400' fontSize='small'>AUTOMAÇÃO</Text>
+                    <Stack spacing='4' mt='8' align='center'>
+                        <Link display='flex' align='center'>
+                            <Icon as={RiInputMethodLine} fontSize='20' />
+                            <Text ml='4' fontWeight='medium' >Formularios</Text>
                         </Link>
                     </Stack>
                 </Box>
