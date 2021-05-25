@@ -4,6 +4,7 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
+import { CustomizedTitle } from "../../components/Title";
 
 export default function UserList() {
     return (
@@ -13,7 +14,7 @@ export default function UserList() {
                 <Sidebar />
                 <Box flex='1' borderRadius={8} background='gray.800' padding='8'>
                     <Flex marginBottom='8' justify='space-between' align='center'>
-                        <Heading size='lg' fontWeight='normal'>Usuários</Heading>
+                        <CustomizedTitle size='lg' fontWeight='normal'>Usuários</CustomizedTitle>
                         <Button
                             as='a'
                             size='sm'
