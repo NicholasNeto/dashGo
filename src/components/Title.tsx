@@ -7,6 +7,6 @@ interface CustomizedTitleProps extends ChakraHeadingProps {
 
 export function CustomizedTitle({ children, ...rest }: CustomizedTitleProps) {
     return (
-        <Heading {...rest}>{children}</Heading>
+        <Heading size='lg' fontWeight='normal' {...rest}>{children}</Heading>
     )
 }
