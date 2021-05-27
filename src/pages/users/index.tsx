@@ -14,7 +14,7 @@ export default function UserList() {
                 <Sidebar />
                 <Box flex='1' borderRadius={8} background='gray.800' padding='8'>
                     <Flex marginBottom='8' justify='space-between' align='center'>
-                        <CustomizedTitle size='lg' fontWeight='normal'>Usuários</CustomizedTitle>
+                        <CustomizedTitle>Usuários</CustomizedTitle>
                         <Button
                             as='a'
                             size='sm'
