@@ -3,7 +3,7 @@ import { Text } from "@chakra-ui/react";
 export function Logo() {
     return (
         <Text
-            fontSize='3xl'
+            fontSize={['2xl', '3xl']} // Ele tem breackpoint, começa no mobile este valor até o proximo
             fontWeight='bold'
             latterSpacing='tight'
             width='64'
