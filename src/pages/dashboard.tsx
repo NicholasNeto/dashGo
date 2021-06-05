@@ -32,7 +32,7 @@ const options: ApexOptions = {
         type: 'datetime',
         axisBorder: {
             color: theme.colors.gray[600]
-        }, 
+        },
         categories: [
             '2021-05-01T00:00:00.000Z',
             '2021-05-02T00:00:00.000Z',
@@ -75,11 +75,21 @@ export default function Dashboard() {
                 <Sidebar />
 
                 <SimpleGrid flex='1' gap='4' minChildWidth='320px' align='flex-start'>
-                    <Box p='8' background='gray.800' borderRadius={8} paddingBottom='4' >
+                    <Box
+                        p={['6', '8']}
+                        background='gray.800'
+                        borderRadius={8}
+                        paddingBottom='4'
+                    >
                         <Text fontSize='lg' marginBottom='4'>Inscritos da semana</Text>
                         <Chart type='area' height={160} options={options} series={series} />
                     </Box>
-                    <Box p='8' background='gray.800' borderRadius={8} paddingBottom='4' >
+                    <Box
+                        p={['6', '8']}
+                        background='gray.800'
+                        borderRadius={8}
+                        paddingBottom='4'
+                    >
                         <Text fontSize='lg' marginBottom='4'>Taxa de abertura</Text>
                         <Chart type='area' height={160} options={options} series={series} />
                     </Box>
