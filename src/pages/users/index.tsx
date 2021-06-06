@@ -57,7 +57,14 @@ export default function UserList() {
                                 </Td>
                                 {isWideVersion && <Td> 04 de Abril, 2011 </Td>}
                                 <Td>
-                                    <Button as='a' size='sm' fontSize='sm' colorScheme='purple' leftIcon={<Icon as={RiPencilLine} fontSize='16' />}> Editar</Button>
+                                    {isWideVersion && <Button
+                                      as='a'
+                                      size='sm'
+                                      fontSize='sm'
+                                      colorScheme='purple'
+                                      leftIcon={<Icon
+                                      as={RiPencilLine}
+                                      fontSize='16' />}> Editar</Button>}
                                 </Td>
                             </Tr>
                             <Tr>
@@ -72,7 +79,14 @@ export default function UserList() {
                                 </Td>
                                 {isWideVersion && <Td> 04 de Abril, 2011 </Td>}
                                 <Td>
-                                    <Button as='a' size='sm' fontSize='sm' colorScheme='purple' leftIcon={<Icon as={RiPencilLine} fontSize='16' />}> Editar</Button>
+                                    {isWideVersion && <Button
+                                      as='a'
+                                      size='sm'
+                                      fontSize='sm'
+                                      colorScheme='purple'
+                                      leftIcon={<Icon
+                                      as={RiPencilLine}
+                                      fontSize='16' />}> Editar</Button>}
                                 </Td>
                             </Tr>
                             <Tr>
@@ -87,7 +101,14 @@ export default function UserList() {
                                 </Td>
                                 {isWideVersion && <Td> 04 de Abril, 2011 </Td>}
                                 <Td>
-                                    <Button as='a' size='sm' fontSize='sm' colorScheme='purple' leftIcon={<Icon as={RiPencilLine} fontSize='16' />}> Editar</Button>
+                                    {isWideVersion && <Button
+                                      as='a'
+                                      size='sm'
+                                      fontSize='sm'
+                                      colorScheme='purple'
+                                      leftIcon={<Icon
+                                      as={RiPencilLine}
+                                      fontSize='16' />}> Editar</Button>}
                                 </Td>
                             </Tr>
                         </Tbody>
