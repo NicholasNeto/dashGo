@@ -4,17 +4,25 @@ import { useRouter } from "next/router";
 
 
 interface ActiveLinkProps extends LinkProps {
-   // isActive: boolean;
+    shouldMatchExactHref?: boolean;
     children: ReactElement;
 }
 
-export function ActiveLink({children,  ...rest }: ActiveLinkProps) {
+export function ActiveLink({ children, shouldMatchExactHref = false, ...rest }: ActiveLinkProps) {
 
-    const { asPath } =  useRouter()
-    let isActive = false;  
+    const { asPath } = useRouter()
+    let isActive = false;
 
-    if(asPath === rest.href || asPath === rest.as){
-        isActive = true  
+    if (shouldMatchExactHref && (asPath === rest.href || asPath === rest.as)) {
+        isActive = true
+    }
+
+    if (!shouldMatchExactHref &&
+        (
+            asPath.startsWith(String(rest.href)) ||
+            asPath.startsWith(String(rest.as))
+        )) {
+        isActive = true
     }
 
     return (
