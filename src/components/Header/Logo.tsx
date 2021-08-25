@@ -5,7 +5,7 @@ export function Logo() {
         <Text
             fontSize={['2xl', '3xl']} // Ele tem breackpoint, começa no mobile este valor até o proximo
             fontWeight='bold'
-            latterSpacing='tight'
+            // latterSpacing='tight'
             width='64'
         >
             dashgo
