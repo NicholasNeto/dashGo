@@ -1,19 +1,24 @@
-import React, { useEffect } from "react";
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
+import React from "react";
+import { Box, Button, Checkbox, Flex, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
 import Link from 'next/link'
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 import { CustomizedTitle } from "../../components/Title";
+import { useQuery } from "react-query";
+
+
 
 export default function UserList() {
     
-    useEffect(() => {
-        fetch('http://localhost:3000/api/users')
-            .then(data => data.json())
-            .then(data => console.log(data))
-    }, [])
+    const query = useQuery('users', async () => {
+        const response = await fetch('http://localhost:3000/api/users')
+        const data = await response.json()        
+        return data
+    });
+
+    console.log(query)
 
     const isWideVersion = useBreakpointValue({
         base: false,
@@ -29,16 +34,16 @@ export default function UserList() {
                     <Flex marginBottom='8' justify='space-between' align='center'>
                         <CustomizedTitle>Usuários</CustomizedTitle>
                         <Link href="/users/create" passHref>
-                        <Button
-                            as='a'
-                            size='sm'
-                            fontSize='sm'
-                            colorScheme='pink'
-                            leftIcon={
-                                <Icon as={RiAddLine} fontSize='20' />}
-                        >
-                            Criar novo
-                        </Button>
+                            <Button
+                                as='a'
+                                size='sm'
+                                fontSize='sm'
+                                colorScheme='pink'
+                                leftIcon={
+                                    <Icon as={RiAddLine} fontSize='20' />}
+                            >
+                                Criar novo
+                            </Button>
                         </Link>
                     </Flex>
 
@@ -67,13 +72,13 @@ export default function UserList() {
                                 {isWideVersion && <Td> 04 de Abril, 2011 </Td>}
                                 <Td>
                                     {isWideVersion && <Button
-                                      as='a'
-                                      size='sm'
-                                      fontSize='sm'
-                                      colorScheme='purple'
-                                      leftIcon={<Icon
-                                      as={RiPencilLine}
-                                      fontSize='16' />}> Editar</Button>}
+                                        as='a'
+                                        size='sm'
+                                        fontSize='sm'
+                                        colorScheme='purple'
+                                        leftIcon={<Icon
+                                            as={RiPencilLine}
+                                            fontSize='16' />}> Editar</Button>}
                                 </Td>
                             </Tr>
                             <Tr>
@@ -89,13 +94,13 @@ export default function UserList() {
                                 {isWideVersion && <Td> 04 de Abril, 2011 </Td>}
                                 <Td>
                                     {isWideVersion && <Button
-                                      as='a'
-                                      size='sm'
-                                      fontSize='sm'
-                                      colorScheme='purple'
-                                      leftIcon={<Icon
-                                      as={RiPencilLine}
-                                      fontSize='16' />}> Editar</Button>}
+                                        as='a'
+                                        size='sm'
+                                        fontSize='sm'
+                                        colorScheme='purple'
+                                        leftIcon={<Icon
+                                            as={RiPencilLine}
+                                            fontSize='16' />}> Editar</Button>}
                                 </Td>
                             </Tr>
                             <Tr>
@@ -111,13 +116,13 @@ export default function UserList() {
                                 {isWideVersion && <Td> 04 de Abril, 2011 </Td>}
                                 <Td>
                                     {isWideVersion && <Button
-                                      as='a'
-                                      size='sm'
-                                      fontSize='sm'
-                                      colorScheme='purple'
-                                      leftIcon={<Icon
-                                      as={RiPencilLine}
-                                      fontSize='16' />}> Editar</Button>}
+                                        as='a'
+                                        size='sm'
+                                        fontSize='sm'
+                                        colorScheme='purple'
+                                        leftIcon={<Icon
+                                            as={RiPencilLine}
+                                            fontSize='16' />}> Editar</Button>}
                                 </Td>
                             </Tr>
                         </Tbody>
