@@ -1,5 +1,5 @@
+import React, { useEffect } from "react";
 import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
-import React from "react";
 import Link from 'next/link'
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
@@ -8,6 +8,12 @@ import { Sidebar } from "../../components/Sidebar";
 import { CustomizedTitle } from "../../components/Title";
 
 export default function UserList() {
+    
+    useEffect(() => {
+        fetch('http://localhost:3000/api/users')
+            .then(data => data.json())
+            .then(data => console.log(data))
+    }, [])
 
     const isWideVersion = useBreakpointValue({
         base: false,
