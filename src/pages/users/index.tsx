@@ -10,7 +10,7 @@ import { useQuery } from "react-query";
 
 export default function UserList() {
 
-    const { data, isLoading, error } = useQuery('users', async () => {
+    const { data, isLoading, isFetching, error } = useQuery('users', async () => {
         const response = await fetch('http://localhost:3000/api/users')
         const data = await response.json()
 
@@ -28,6 +28,8 @@ export default function UserList() {
             }
         })
         return users
+    }, {
+        staleTime: 1000 * 5 // 5 segundos não vai precisar se recarregado
     });
 
     const isWideVersion = useBreakpointValue({
@@ -42,7 +44,10 @@ export default function UserList() {
                 <Sidebar />
                 <Box flex='1' borderRadius={8} background='gray.800' padding='8'>
                     <Flex marginBottom='8' justify='space-between' align='center'>
-                        <CustomizedTitle>Usuários</CustomizedTitle>
+                        <CustomizedTitle>
+                            Usuários
+                            {!isLoading && isFetching && <Spinner size='sm' color='gray.500' ml='4' />}
+                        </CustomizedTitle>
                         <Link href="/users/create" passHref>
                             <Button
                                 as='a'
