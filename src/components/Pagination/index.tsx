@@ -9,17 +9,17 @@ interface PaginationProps {
     onPageChanged: (page: number) => void;
 }
 
-const siblingCount = 1
+const siblingCount = 2
 
-function generationPagesArray(from: number, to: number) {
-
+function generationPagesArray(from: number, to: number): number[] {
+    return [from, to]
 }
 
 export function Pagination({ totalCountOfRegisters, registersPerPage, currentPage, onPageChanged }: PaginationProps) {
 
     const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
 
-    const previousPage = currentPage > 1 ?
+    const previousPages: number[] = currentPage > 1 ?
         generationPagesArray(currentPage - 1 - siblingCount, currentPage - 1) : []
 
     const nextPages = currentPage < lastPage ?
@@ -38,10 +38,18 @@ export function Pagination({ totalCountOfRegisters, registersPerPage, currentPag
             </Box>
 
             <Stack direction='row' spacing='2'>
+
+                {previousPages.length > 0 && previousPages.map(page => {
+                    return <PaginationItem key={page} pageNumber={page} />
+                })}
+
                 <PaginationItem isCurrent={true} pageNumber={1} />
-                <PaginationItem pageNumber={2} />
-                <PaginationItem pageNumber={3} />
-                <PaginationItem pageNumber={4} />
+
+
+                {nextPages.length > 0 && nextPages.map(page => {
+                    return <PaginationItem key={page} pageNumber={page} />
+                })}
+
             </Stack>
         </Stack>
     )
