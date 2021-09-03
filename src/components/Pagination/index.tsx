@@ -9,21 +9,28 @@ interface PaginationProps {
     onPageChanged: (page: number) => void;
 }
 
-const siblingCount = 2
+const siblingsCount = 1
 
-function generationPagesArray(from: number, to: number): number[] {
-    return [from, to]
+function generationPagesArray(from: number, to: number) {
+    return [... new Array(to - from)]
+        .map((_, index) => from + index + 1)
+        .filter(page => page > 0)
 }
 
-export function Pagination({ totalCountOfRegisters, registersPerPage, currentPage, onPageChanged }: PaginationProps) {
+export function Pagination({
+    totalCountOfRegisters,
+    registersPerPage = 10,
+    currentPage = 1,
+    onPageChanged
+}: PaginationProps) {
 
     const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
 
     const previousPages: number[] = currentPage > 1 ?
-        generationPagesArray(currentPage - 1 - siblingCount, currentPage - 1) : []
+        generationPagesArray(currentPage - 1 - siblingsCount, currentPage - 1) : []
 
     const nextPages = currentPage < lastPage ?
-        generationPagesArray(currentPage, Math.min(currentPage + siblingCount, lastPage)) : []
+        generationPagesArray(currentPage, Math.min(currentPage + siblingsCount, lastPage)) : []
 
     return (
         <Stack
@@ -39,17 +46,20 @@ export function Pagination({ totalCountOfRegisters, registersPerPage, currentPag
 
             <Stack direction='row' spacing='2'>
 
+                {currentPage > siblingsCount + 1  &&  <PaginationItem pageNumber={1} /> }
+
                 {previousPages.length > 0 && previousPages.map(page => {
                     return <PaginationItem key={page} pageNumber={page} />
                 })}
 
-                <PaginationItem isCurrent={true} pageNumber={1} />
+                <PaginationItem isCurrent={true} pageNumber={currentPage} />
 
 
                 {nextPages.length > 0 && nextPages.map(page => {
                     return <PaginationItem key={page} pageNumber={page} />
                 })}
 
+                {currentPage + siblingsCount <  lastPage  &&  <PaginationItem pageNumber={lastPage} /> }
             </Stack>
         </Stack>
     )
