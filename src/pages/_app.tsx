@@ -1,17 +1,17 @@
 import { AppProps } from 'next/app'
+import { QueryClientProvider } from 'react-query'
 import { ChakraProvider } from '@chakra-ui/react'
+import { makeServer } from '../services/mirage'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 import { theme } from '../styles/theme'
 import { SidebarDrawerProvider } from '../contexts/SidebarDrawerContenxt'
-import { makeServer } from '../services/mirage'
-import { QueryClientProvider, QueryClient } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { queryClient } from '../services/queryClient'
 
 
 if (process.env.NODE_ENV === 'development') {
   makeServer();
 }
-
-const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
