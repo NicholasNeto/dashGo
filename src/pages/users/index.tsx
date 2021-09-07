@@ -19,20 +19,15 @@ type User = {
     email: string;
     createdAt: string;
 }
-
 interface UserListProps {
     users: User[];
 }
 
-
-// { users }: UserListProps
-// , {
-//     initialData: users,
-// }
-
-export default function UserList() {
+export default function UserList({ users }: UserListProps) {
     const [page, setPage] = useState(1)
-    const { data, isLoading, isFetching, error } = useUsers(page);
+    const { data, isLoading, isFetching, error } = useUsers(page, {
+        initialData: users,
+    });
 
     async function handlePrefetchUser(userId: string) {
         await queryClient.prefetchQuery(['user', userId], async () => {
@@ -142,13 +137,22 @@ export default function UserList() {
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    const { users, totalCount  } = await getUsers(1)
-    // console.log('users', users)
 
-    // return {
-    //     props: {
-    //         users,
-    //     }
-    // }
+{/*
+    Note: At this time, Mirage only runs in the browser, 
+    meaning it will not mock out any server-side network calls your Next.js 
+    app makes via hooks like getServerSideProps.
+
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const { users, totalCount } = await getUsers(1)
+     console.log('users', users)
+
+    return {
+        props: {
+            users,
+        }
+    }
 }
+
+*/}
