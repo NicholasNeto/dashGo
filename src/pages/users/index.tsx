@@ -6,14 +6,33 @@ import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 import { CustomizedTitle } from "../../components/Title";
-import { useUsers } from "../../services/hooks/useUsers";
+import { getUsers, useUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
 import { api } from "../../services/api";
+import { GetServerSideProps } from "next";
+
+
+
+type User = {
+    id: string;
+    name: string;
+    email: string;
+    createdAt: string;
+}
+
+interface UserListProps {
+    users: User[];
+}
+
+
+// { users }: UserListProps
+// , {
+//     initialData: users,
+// }
 
 export default function UserList() {
     const [page, setPage] = useState(1)
     const { data, isLoading, isFetching, error } = useUsers(page);
-
 
     async function handlePrefetchUser(userId: string) {
         await queryClient.prefetchQuery(['user', userId], async () => {
@@ -121,4 +140,15 @@ export default function UserList() {
             </Flex>
         </Box>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const { users, totalCount  } = await getUsers(1)
+    // console.log('users', users)
+
+    // return {
+    //     props: {
+    //         users,
+    //     }
+    // }
 }
